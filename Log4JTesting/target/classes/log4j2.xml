@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+    <appender name="FILE" class="org.apache.log4j.FileAppender">
+        <param name="File" value="/error.log" />
+        <param name="Append" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} [%t] %-5p %c %x - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="levelMin" value="ERROR" />
+            <param name="levelMax" value="FATAL" />
+        </filter>
+    </appender>
+
+    <root>
+        <priority value="error" />
+        <appender-ref ref="FILE" />
+    </root>
+</Configuration>
